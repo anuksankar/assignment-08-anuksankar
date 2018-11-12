@@ -328,12 +328,12 @@ Found 2 items
 ```
 
 Exit from hapood and pyspark
-``
+```
 exit()
 
 exit
 
-``
+```
 Bring down the cluster
 ```
 docker-compose down
