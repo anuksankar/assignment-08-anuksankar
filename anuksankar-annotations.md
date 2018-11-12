@@ -17,8 +17,8 @@ docker-compose up -d
 docker-compose logs -f kafka
 ```
 Check out Hadoop
-```
 
+```
 docker-compose exec cloudera hadoop fs -ls /tmp/
 ```
 The following was displayed:
@@ -29,14 +29,16 @@ drwx-wx-wx   - root   supergroup          0 2018-11-01 23:24 /tmp/hive
 ```
 
 Create topic "assessments"
+
 ```
 docker-compose exec kafka kafka-topics --create --topic assessments --partitions 1 --replication-factor 1 --if-not-exists --zookeeper zookeeper:32181
+```
+Displays
 ```
 Created topic "assessments".
 ```
 As I am using the same json file from assignments 6 and 7, I just  verified if it is there in w205 directory.
 ```
-
 cd ~/w205
 
 ls -l 
