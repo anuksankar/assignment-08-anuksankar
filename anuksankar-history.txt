@@ -1,0 +1,16 @@
+    5  history
+    6  cp ~/w205/course-content/08-Querying-Data/docker-compose.yml .
+    7  docker-compose up -d
+    8  docker-compose exec cloudera hadoop fs -ls /tmp/
+    9  docker-compose exec kafka kafka-topics --create --topic assessments --partitions 1 --replication-factor 1 --if-not-exists --zookeeper zookeeper:32181
+   10  cd ~/w205
+   11  ls -l
+   12  vi  assessment-attempts-20180128-121051-nested.json
+   13  cd ~/w205/spark-with-kafka-and-hdfs
+   14  docker-compose exec mids bash -c "cat /w205/assessment-attempts-20180128-121051-nested.json | jq '.[]' -c | kafkacat -P -b kafka:29092 -t assessments"
+   15  docker-compose exec mids bash -c "cat /w205/assessment-attempts-20180128-121051-nested.json | jq '.[]' -c | kafkacat -P -b kafka:29092 -t commits"
+   16  docker-compose down
+   17  docker-compose ps -a
+   18  docker-compose ps 
+   19  docker ps -a
+   20  history > anuksankar-history.txt
